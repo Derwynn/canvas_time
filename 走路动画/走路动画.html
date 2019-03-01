@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+        canvas{border:1px solid black;}
+    </style>
+</head>
+<body>
+<canvas width="600" height="600"></canvas>
+    <script>
+         var canvas = document.querySelector('canvas');
+         var ctx = canvas.getContext('2d');
+         var img = new Image();
+         img.src='3.png';
+         time=null;
+        document.oncontextmenu = function(){
+　　       return false;
+        }   
+    window.addEventListener('mousedown', onMouseDown, false);
+    function onMouseDown(event){
+
+    if (event.button == 0) {
+        ctx.clearRect(0,0,600,600);
+        clearInterval(time);
+        var i=0;
+        time=setInterval(function(){
+            ctx.clearRect(0,0,600,600)
+            ctx.drawImage(img,371/4*i,95,371/4,96,0,0,371/4,96);
+                i++;
+                if(i>=4){
+                    i=0;
+                }
+        },100)
+
+     }else if (event.button == 2){
+        ctx.clearRect(0,0,600,600);
+        clearInterval(time);
+        var i=0;
+        time=setInterval(function(){
+            ctx.clearRect(0,0,600,600)
+            ctx.drawImage(img,371/4*i,0,371/4,96,0,0,371/4,96);
+                i++;
+                if(i>=4){
+                    i=0;
+                }
+        },100)
+
+     }//else if(event.button == 1){}
+}
+    </script>
+	
+</body>
+</html>
